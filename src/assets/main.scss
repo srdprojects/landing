@@ -1,0 +1,98 @@
+$font : 'SatoshiBold';
+
+
+* {
+  margin: 0;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  touch-action: manipulation;
+}
+
+button {
+  color: #000;
+}
+
+html {
+  font-size: 10px;
+}
+
+$fonts: (
+  ('SatoshiRegular', './fonts/Satoshi/Satoshi-Regular.otf', 400),
+  ('SatoshiBlack', './fonts/Satoshi/Satoshi-Black.otf', 900),
+  ('SatoshiLight', './fonts/Satoshi/Satoshi-Light.otf', 300),
+  ('SatoshiBold', './fonts/Satoshi/Satoshi-Bold.otf', 700)
+);
+
+@mixin font-face($font-family, $file-path, $font-weight) {
+  @font-face {
+    font-family: $font-family;
+    src: url('#{$file-path}');
+    font-weight: $font-weight;
+    font-display: swap;
+  }
+}
+
+@each $font-family, $file-path, $font-weight in $fonts {
+  @include font-face($font-family, $file-path, $font-weight);
+}
+
+@font-face {
+  font-family: 'SatoshiMedium';
+  src: url('./fonts/Satoshi/Satoshi-Medium.woff2') format("woff2");
+  font-weight: 500;
+  font-display: swap;
+  font-style: normal;
+}
+
+
+
+@font-face {
+  font-family: 'IntegralCF';
+  src: url('./fonts/Integral-CF-Font-Family/Fontspring-DEMO-integralcf-bold.otf');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'IntegralCF1';
+  src: url('./fonts/Integral-CF-Font-Family/IntegralCF-Bold.ttf');
+  font-weight: 700;
+}
+
+
+
+a {
+  color: inherit;
+  text-decoration: none;
+  color: #000;
+}
+
+
+li {
+  list-style: none;
+}
+
+.container {
+  padding: 0 2rem !important;
+
+  @media (max-width: 490px) {
+    padding: 0 1.6rem !important;
+  }
+}
+
+.navbar-wrapper {
+  max-width: calc(100% - (2 * 2rem)) !important;
+
+  @media (max-width: 490px) {
+    max-width: calc(100% - (2 * 1.6rem)) !important;
+  }
+}
+
+.content-wrapper {
+  padding: 0 2rem !important;
+  margin: 0;
+
+  @media (max-width: 490px) {
+    padding: 0 1.6rem !important;
+  }
+}
